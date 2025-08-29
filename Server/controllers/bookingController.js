@@ -6,7 +6,7 @@ import Car from "../models/Car.js";
 const checkAvailability = async (car, pickupDate, returnDate) => {
   const bookings = await Booking.find({
     car: new mongoose.Types.ObjectId(car),  
-    status: { $in: ["pending", "confirmed"] }, 
+    status:  "confirmed" , 
     pickupDate: { $lte: new Date(returnDate) },
     returnDate: { $gte: new Date(pickupDate) },
   });
