@@ -1,4 +1,4 @@
-🚗 Car Rental Application
+ <h1>🚗Car Rental Application</h1>
 
 A full-stack **Car Rental Management System** built with **MERN stack (MongoDB, Express.js, React, Node.js)** and deployed on **Vercel**.\
 It allows users to **rent cars, manage bookings, and become owners** who can list and manage their vehicles.
