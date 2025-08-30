@@ -71,8 +71,7 @@ It allows users to **rent cars, manage bookings, and become owners** who can lis
 
 📂 Project Structure
 --------------------
-
-`CarRental/
+CarRental/
 │── Client/        # React frontend
 │   ├── src/       # Components, pages, assets
 │   ├── public/    # Static files
@@ -86,7 +85,7 @@ It allows users to **rent cars, manage bookings, and become owners** who can lis
 │   ├── routes/      # API routes
 │   └── index.js     # Server entry
 │
-└── README.md`
+└── README.md
 
 * * * * *
 
