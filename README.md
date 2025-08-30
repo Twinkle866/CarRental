@@ -1,76 +1,57 @@
- <h1>🚗Car Rental Application</h1>
+### 🚗 Car Rental Application
 
-A full-stack **Car Rental Management System** built with **MERN stack (MongoDB, Express.js, React, Node.js)** and deployed on **Vercel**.\
-It allows users to **rent cars, manage bookings, and become owners** who can list and manage their vehicles.
+This is a full-stack **Car Rental Management System** built with the **MERN stack (MongoDB, Express.js, React, Node.js)** and deployed on **Vercel**. It enables users to **rent cars, manage bookings, and become owners** who can list and manage their own vehicles.
 
-* * * * *
+-----
 
-✨ Features
-----------
+### ✨ Features
 
-### 🔹 User Features
+#### **User Features**
 
--   Register / Login with JWT authentication
+  * Register/Login with **JWT authentication**
+  * Browse available cars
+  * Book cars for specific dates
+  * Manage personal profile
 
--   Browse available cars
+#### **Owner Features**
 
--   Book cars for specific dates
+  * Upgrade account to an **Owner** role
+  * Add cars with images (via **ImageKit**)
+  * Manage listed cars (toggle availability, delete, etc.)
+  * View bookings for their cars
 
--   Manage personal profile
+#### **Admin / System**
 
-### 🔹 Owner Features
+  * Secure API routes with **JWT middleware**
+  * **MongoDB Atlas** integration for the database
+  * Cloud image storage & optimization with **ImageKit**
 
--   Upgrade account to **Owner** role
+-----
 
--   Add cars with images (via ImageKit)
+### 🛠️ Tech Stack
 
--   Manage listed cars (availability toggle, delete, etc.)
+#### **Frontend**
 
--   View bookings for their cars
+  * **React 19** (with Vite 7)
+  * **Tailwind CSS 4** for styling
+  * **React Router v7** for navigation
+  * **React Hot Toast / Toastify** for notifications
+  * **Axios** for API calls
 
-### 🔹 Admin / System
+#### **Backend**
 
--   Secure API routes with JWT middleware
+  * **Node.js** + **Express.js**
+  * **MongoDB (Mongoose)** for the database
+  * **JWT** for authentication
+  * **Bcrypt** for password hashing
+  * **Multer** for file uploads
+  * **ImageKit** for image hosting
 
--   MongoDB Atlas integration
+-----
 
--   Cloud image storage & optimization with ImageKit
+### 📂 Project Structure
 
-* * * * *
-
-🛠️ Tech Stack
---------------
-
-### Frontend
-
--   **React 19** (with Vite 7)
-
--   **Tailwind CSS 4** for styling
-
--   **React Router v7** for navigation
-
--   **React Hot Toast / Toastify** for notifications
-
--   **Axios** for API calls
-
-### Backend
-
--   **Node.js** + **Express.js**
-
--   **MongoDB (Mongoose)** for database
-
--   **JWT** for authentication
-
--   **Bcrypt** for password hashing
-
--   **Multer** for file upload
-
--   **ImageKit** for image hosting
-
-* * * * *
-
-📂 Project Structure
---------------------
+```
 CarRental/
 │── Client/        # React frontend
 │   ├── src/       # Components, pages, assets
@@ -81,96 +62,92 @@ CarRental/
 │   ├── Configs/   # Database & ImageKit config
 │   ├── controllers/ # Business logic
 │   ├── middleware/  # Auth & Multer
-│   ├── models/      # Mongoose schemas
-│   ├── routes/      # API routes
-│   └── index.js     # Server entry
+│   ├── models/    # Mongoose schemas
+│   ├── routes/    # API routes
+│   └── index.js   # Server entry
 │
 └── README.md
+```
 
-* * * * *
+-----
 
-⚙️ Installation & Setup
------------------------
+### ⚙️ Installation & Setup
 
-### 🔽 Clone repository
+#### **🔽 Clone Repository**
 
-`git clone https://github.com/your-username/car-rental.git
-cd car-rental`
+```bash
+git clone https://github.com/your-username/car-rental.git
+cd car-rental
+```
 
-### ▶️ Setup Backend
+#### **▶️ Setup Backend**
 
-`cd Server
-npm install`
+1.  Navigate to the `Server` directory and install dependencies:
+    ```bash
+    cd Server
+    npm install
+    ```
+2.  Create a `.env` file inside the `Server/` directory and add your configurations:
+    ```
+    PORT=5000
+    MONGODB_URI=your_mongodb_connection_string
+    JWT_SECRET=your_secret_key
+    IMAGEKIT_PUBLIC_KEY=your_public_key
+    IMAGEKIT_PRIVATE_KEY=your_private_key
+    IMAGEKIT_URL_ENDPOINT=your_url_endpoint
+    ```
+3.  Run the server:
+    ```bash
+    npm run server
+    ```
 
-Create a `.env` file inside **Server/**:
+-----
 
-`PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-IMAGEKIT_PUBLIC_KEY=your_public_key
-IMAGEKIT_PRIVATE_KEY=your_private_key
-IMAGEKIT_URL_ENDPOINT=your_url_endpoint`
+#### **💻 Setup Frontend**
 
-Run server:
+1.  Navigate back to the `Client` directory and install dependencies:
+    ```bash
+    cd ../Client
+    npm install
+    ```
+2.  Create a `.env` file inside the `Client/` directory:
+    ```
+    VITE_API_URL=http://localhost:5000/api
+    VITE_CURRENCY=₹
+    ```
+3.  Run the frontend:
+    ```bash
+    npm run dev
+    ```
 
-`npm run server`
+-----
 
-* * * * *
+### 🚀 Deployment
 
-### 💻 Setup Frontend
+  * **Frontend:** Deploy on **Vercel**
+  * **Backend:** Can be hosted on **Vercel**, **Render**, or **Railway**
+  * **Database:** Use **MongoDB Atlas**
 
-`cd ../Client
-npm install`
+-----
 
-Create `.env` file inside **Client/**:
+### 🔑 API Endpoints
 
-`VITE_API_URL=http://localhost:5000/api
-VITE_CURRENCY=₹`
+#### **User Routes (`/api/user`)**
 
-Run frontend:
+  * `POST /register` → Register a user
+  * `POST /login` → Log in a user
+  * `GET /data` → Get user details (JWT required)
+  * `GET /cars` → Fetch all available cars
 
-`npm run dev`
+#### **Owner Routes (`/api/owner`)**
 
-* * * * *
+  * `POST /role` → Change user role to Owner
+  * `POST /car` → Add a new car
+  * `GET /cars` → Get an owner's listed cars
+  * `POST /toggle` → Toggle a car's availability
 
-🚀 Deployment
--------------
+#### **Booking Routes (`/api/bookings`)**
 
--   **Frontend:** Deploy on Vercel
-
--   **Backend:** Can be hosted on Vercel / Render / Railway
-
--   **Database:** Use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas?utm_source=chatgpt.com)
-
-* * * * *
-
-🔑 API Endpoints
-----------------
-
-### User Routes (`/api/user`)
-
--   `POST /register` → Register user
-
--   `POST /login` → Login user
-
--   `GET /data` → Get user details (JWT required)
-
--   `GET /cars` → Fetch all available cars
-
-### Owner Routes (`/api/owner`)
-
--   `POST /role` → Change user role to Owner
-
--   `POST /car` → Add a car
-
--   `GET /cars` → Get owner's cars
-
--   `POST /toggle` → Toggle availability
-
-### Booking Routes (`/api/bookings`)
-
--   `POST /new` → Create booking
-
--   `GET /my` → Get user bookings
-
--   `GET /car/:id` → Get bookings for a car
+  * `POST /new` → Create a new booking
+  * `GET /my` → Get a user's bookings
+  * `GET /car/:id` → Get bookings for a specific car
